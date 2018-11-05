@@ -25,7 +25,7 @@ class App extends Component {
 
   handleClick(e){
     var request = new XMLHttpRequest();
-    var id = Math.floor(Math.random()) * 61 + 1
+    var id = Math.floor((Math.random() * 61) + 1)
     var url = 'https://swapi.co/api/planets/'+id+'/'
     var name, pop, clim, terr, film
     request.open('GET', url, true);
@@ -38,8 +38,8 @@ class App extends Component {
         terr = response.terrain
         film = response.films.length
         console.log(response)
-        console.log(response.name)
-        console.log(response.films.length)
+        console.log(name)
+        console.log(film)
         console.log("id: " + id)
         console.log("url: " + url)
       } else {
