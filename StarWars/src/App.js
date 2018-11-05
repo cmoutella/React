@@ -25,12 +25,23 @@ class App extends Component {
 
   handleClick(e){
     var request = new XMLHttpRequest();
-    const url = 'https://swapi.co/api/planets/'
+    var id = Math.floor(Math.random()) * 61 + 1
+    var url = 'https://swapi.co/api/planets/'+id+'/'
+    var name, pop, clim, terr, film
     request.open('GET', url, true);
     request.addEventListener('load', function() {
       if (request.status >= 200 && request.status < 400){
         var response = JSON.parse(request.responseText)
+        name = response.name
+        pop = response.population
+        clim = response.climate
+        terr = response.terrain
+        film = response.films.length
         console.log(response)
+        console.log(response.name)
+        console.log(response.films.length)
+        console.log("id: " + id)
+        console.log("url: " + url)
       } else {
         console.log('Error in network request: ' + request.statusText)
       }
@@ -40,11 +51,11 @@ class App extends Component {
     this.setState({
       played: true,
       btnTxt: 'Next',
-      planet_name: '',
-      population: '',
-      climate: '',
-      terrain: '',
-      films: ''
+      planet_name: name,
+      population: pop,
+      climate: clim,
+      terrain: terr,
+      films: film
     })
   }
 
