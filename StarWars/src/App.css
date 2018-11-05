@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+@font-face {
+  font-family: StarWarsLine;
+  src: url("./font/StarJediHollow.woff");
+  font-weight: regular;
+}
+@font-face {
+  font-family: StarWars;
+  src: url("./font/StarJedi.woff");
+  font-weight: regular;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.dsf {
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  background-image: url("./img/bg.jpeg");
+  background-position: center;
+  display: flex;
+}
+@media (min-width: 76.3076923077rem) {
+  .dsf {
+    background-size: cover;
+  }
+}
+.dsf .container {
+  height: 90%;
+  width: 85%;
+  max-width: 400px;
+  display: grid;
+  grid-template-rows: 75% 25%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: transparent;
+  margin: auto;
+  text-align: center;
+}
+@media (min-width: 76.3076923077rem) {
+  .dsf .container {
+    height: 87%;
+    width: 31%;
+  }
+}
+.dsf__img {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  background-image: url("./img/death-star.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.dsf__button {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  grid-row-start: 2;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  background-color: #FFE919;
+  width: 80%;
+  height: 50%;
+  margin: 25px auto;
+  border-radius: 8px;
+  color: #000;
+  font-family: StarWars;
+  font-size: 26px;
+}
+
+.card {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  background-color: #CAC2C2;
+  opacity: 0.7;
+  border-radius: 8px;
+}
+.card__header {
+  font-family: StarWars;
+  font-size: 25px;
+  border-bottom: 3px solid #000;
+}
+.card__list {
+  margin: 30px 0;
+  text-align: left;
+  line-height: 24px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: regular;
+}
+.card__list li {
+  list-style: none;
+  padding: none;
+}
+.card p {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: regular;
+}
+
+/*# sourceMappingURL=App.css.map */

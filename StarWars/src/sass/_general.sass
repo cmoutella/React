@@ -1,0 +1,104 @@
+//Font
+@font-face
+	font-family: StarWarsLine
+	src: url('./font/StarJediHollow.woff')
+	font-weight: regular
+
+@font-face
+	font-family: StarWars
+	src: url('./font/StarJedi.woff')
+	font-weight: regular
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500')
+
+$swOutline: StarWarsLine
+$sw: StarWars
+$sans: 'Roboto', sans-serif
+
+//Colors
+$gold: #FFE919
+$grey: #CAC2C2
+    
+// Screen Sizes
+$sm: (col:  1, gut: 24/2, max:  540, bkp:  576)
+$md: (col: 12, gut: 12/2, max:  720, bkp:  768)
+$lg: (col: 12, gut: 16/2, max: 1366, bkp:  992)
+$xl: (col: 12, gut: 16/2, max: 1366, bkp: 1140)
+
+
+// Functions
+$base-font-size: 13px
+
+@function col($bp: $sm, $columns: 1)
+	@if type-of($bp) == number
+		@return (100% / round($bp)) * $columns
+	@else
+		@return (100% / map-get($bp, col)) * $columns
+
+@function gut($bp: $sm, $columns: 0)
+	$col: map-get($bp, col)
+	$gut: map-get($bp, gut)
+	$max: map-get($bp, max)
+	@if $columns == 0
+		$columns: $col
+	@return percentage($gut / ($max * $columns / $col))
+
+@function rem($px, $line: 0)
+	$size: (($px * 1px) / $base-font-size) * 1rem
+	@if $line > 0
+		@return #{$size}/#{$line}
+	@else
+		@return $size
+
+@function em($px, $line: 0)
+	$size: (($px * 1px) / $base-font-size) * 1em
+	@if $line > 0
+		@return #{$size}/#{$line / $px}
+	@else
+		@return $size
+
+@function strip-units($number)
+	@return $number / ($number * 0 + 1)
+
+
+// Mixins
+=breakpoint($bp: $sm, $max: false)
+	@if ($max)
+		@media (max-width: rem(map-get($bp, bkp) - 1))
+			@content
+	@else
+		@media (min-width: rem(map-get($bp, bkp)))
+			@content
+
+=clearfix
+	&:after
+		clear: both
+		content: ""
+		display: table
+
+=reset
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+
+=reset-list
+	+reset
+	list-style: none
+
+=reset-button
+	+reset
+	background: transparent
+	border: none
+	cursor: pointer
+
+=responsive-image
+	display: block
+	height: auto
+	width: 100%
+
+
+=hide
+	color: transparent
+	display: none
+	font: 0/0 serif
+	height: rem(0)
