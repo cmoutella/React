@@ -6,12 +6,14 @@ const PlanetCard = ({ name, population, climate, terrain, films }) => (
     <header className="card__header">
       <h2>{name}</h2>
     </header>
-    <ul className="card__list">
-      <li>Population: {population}</li>
-      <li>Climate: {climate}</li>
-      <li>Terrain: {terrain}</li>
-    </ul>
-    <p>Featured in {films} films.</p>
+    <div className="card__body">
+      <ul className="card__list">
+        <li><span>Population:</span> {population}</li>
+        <li><span>Climate:</span> {climate}</li>
+        <li><span>Terrain:</span> {terrain}</li>
+      </ul>
+      <p>Featured in {films} films.</p>
+    </div>
   </div>
 );
 
